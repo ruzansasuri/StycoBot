@@ -27,7 +27,7 @@ NON_STRING_INPUT = 123
 VALID_EVENT = {
     "httpMethod": "POST",
     "headers": {
-        "Origin": "https://test.com"
+        "origin": "https://test.com"
     },
     "body": json.dumps({"message": "What is Ruzan's favorite food?"})
 }
@@ -35,14 +35,14 @@ VALID_EVENT = {
 OPTIONS_EVENT = {
     "httpMethod": "OPTIONS",
     "headers": {
-        "Origin": "https://test.com"
+        "origin": "https://test.com"
     }
 }
 
 INVALID_JSON_EVENT = {
     "httpMethod": "POST",
     "headers": {
-        "Origin": "https://test.com"
+        "origin": "https://test.com"
     },
     "body": "invalid json"
 }
@@ -50,7 +50,7 @@ INVALID_JSON_EVENT = {
 INVALID_ORIGIN_EVENT = {
     "httpMethod": "POST",
     "headers": {
-        "Origin": "https://malicious.com"
+        "origin": "https://malicious.com"
     },
     "body": json.dumps({"message": "What is Ruzan's favorite food?"})
 }

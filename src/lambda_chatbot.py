@@ -128,7 +128,7 @@ def get_cors_headers(origin: str) -> Dict[str, str]:
         return {
             'Access-Control-Allow-Origin': origin,
             'Access-Control-Allow-Methods': 'POST,OPTIONS',
-            'Access-Control-Allow-Headers': 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
+            'Access-Control-Allow-Headers': 'Content-Type',
             'Access-Control-Max-Age': '86400'
         }
     return {}
@@ -143,7 +143,7 @@ def handle_options_request(event: Dict[str, Any]) -> Dict[str, Any]:
     Returns:
         dict: Response for OPTIONS request
     """
-    origin = event.get('headers', {}).get('Origin', '')
+    origin = event.get('headers', {}).get('origin', '')
     return {
         'statusCode': 200,
         'headers': get_cors_headers(origin),
@@ -209,7 +209,7 @@ def lambda_handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
             return handle_options_request(event)
         
         # Get origin for CORS
-        origin = event.get('headers', {}).get('Origin', '')
+        origin = event.get('headers', {}).get('origin', '')
         logger.info(f"Extracted origin: {origin}")
 
         # Check if origin is allowed using get_cors_headers
