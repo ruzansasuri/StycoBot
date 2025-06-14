@@ -1,3 +1,4 @@
+# OG chatbot code.
 import random
 
 # Global variables
