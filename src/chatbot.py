@@ -119,6 +119,10 @@ def print_welcome():
 
 def print_salutation():
     """Print a salutation message"""
+    print(f"Hello! I'm {BOT_NAME}. I can chat with you about people I know and their favorite food, age, and quotes.")
+
+def print_salutation_user():
+    """Print a salutation message"""
     global user_name
     print(f"Hello {user_name}! I'm {BOT_NAME}.")
     print("Once you are done talking with me you can change your name by typing 'change name'.")
@@ -158,13 +162,13 @@ def communicate():
 
 def print_goodbye():
     """Print a goodbye message"""
-    print(f"Goodbye {user_name}! Have a great day!")
+    print(f"Goodbye! Have a great day!")
 
 def main():
     global user_name
     print_welcome()
     authenticate_user()
-    print_salutation()
+    print_salutation_user()
     communicate()
     print_goodbye()
 

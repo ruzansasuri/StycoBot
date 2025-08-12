@@ -1,2 +1,9 @@
 # Python 3.12 required
-# No external dependencies required for this simple chatbot 
+requests==2.31.0
+boto3==1.29.0
+
+# Ollama (local LLM API)
+requests
+
+# scikit-learn for llm_to_db.py
+scikit-learn
