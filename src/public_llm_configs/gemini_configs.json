@@ -1,0 +1,7 @@
+{
+    "api_url": "https://generativelanguage.googleapis.com/v1beta/models",
+    "model": "gemini-1.5-flash",
+    "generate_path": "generateContent",
+    "embed_path": "embedContent",
+    "api_key": "gemini-youthrilladd-wheelyouthidgosuerhtoa"
+}

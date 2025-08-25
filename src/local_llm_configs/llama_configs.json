@@ -1,0 +1,5 @@
+{
+    "api_url": "http://localhost:11434/",
+    "generate_path": "api/generate",
+    "model": "llama2"
+}

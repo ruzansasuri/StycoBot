@@ -1,11 +1,11 @@
 import unittest
 from unittest.mock import patch
-from chatbot import authenticate_user, extract_name, generate_response, get_user_data, UserData
+from common.chatbot import authenticate_user, extract_name, generate_response, get_user_data, UserData
 
 class TestChatbot(unittest.TestCase):
     def setUp(self):
         """Set up test environment"""
-        import chatbot
+        import common.chatbot as chatbot
         chatbot.known_names = set(['Ruzan', 'Sean', 'Brijesh'])
         chatbot.USERS = {
             'Ruzan': chatbot.UserData('Ruzan', '34', 'Shrimp', 'Never give up'),
@@ -16,7 +16,7 @@ class TestChatbot(unittest.TestCase):
 
     def test_authenticate_user_valid(self):
         """Test successful user authentication"""
-        import chatbot
+        import common.chatbot as chatbot
         with patch('builtins.input', return_value='Ruzan'):
             authenticate_user()
             self.assertEqual(chatbot.user_name, 'Ruzan')
