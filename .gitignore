@@ -26,4 +26,5 @@ htmlcov/
 ui/
 
 # Deployment files
-StycoBot.zip 
+deploy/StycoBot.zip
+deploy/deps/

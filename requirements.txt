@@ -1,2 +1,7 @@
 # Python 3.12 required
 # No external dependencies required for this simple chatbot 
+# Usual suspects
+numpy
+
+# OpenAI client
+OpenAI
