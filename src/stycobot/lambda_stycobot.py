@@ -6,32 +6,38 @@ from typing import Any, List, Dict
 import os
 from openai import OpenAI
 
-from libs.api.common import create_error_response, create_success_response, handle_options_request
+from libs.metrics.shared_metrics import metrics as aws_metrics_logger
+from libs.api.common import create_error_response, create_success_response, get_cors_headers, handle_options_request
+from libs.metrics.aws_metrics import LogLevel
 
-# Configure logging
-logger = logging.getLogger()
-logger.setLevel(logging.INFO)
-
+# Configure metrics
+aws_metrics_logger.init("lambda_stycobot")
 
 BOT_NAME = "StycoBot"
 MAX_INPUT_LENGTH = 1000  # Maximum allowed input length
 
 class LambdaRAGBot:
-    def __init__(self):
+    def __init__(self, file_path: str = None) -> None:
         # Load embeddings from JSON (included in Lambda package)
-        self.embeddings_data = self.load_embeddings()
+        self.embeddings_data = self.load_embeddings(file_path)
         self.embeddings_matrix = np.array([item['embedding'] for item in self.embeddings_data])
         
         # Initialize OpenAI client
         self.client = OpenAI(api_key=os.environ.get('OPENAI_API_KEY'))
         
-    def load_embeddings(self):
-        """Load embeddings from packaged JSON file"""
-        embeddings_path = os.path.join(os.path.dirname(__file__), 'embeddings.json')
+    def load_embeddings(self, file_path: str = None) -> List[Dict]:
+        """
+            Load embeddings from packaged JSON file
+            param file_path: Optional path to the embeddings file(please include trailing slash)
+        """
+        if file_path is None: # When running on lambda, it won't have a path
+            embeddings_path = os.path.join(os.path.dirname(__file__), 'embeddings.json')
+        else: # When running locally, it will have a path from the if, name, main part.
+            embeddings_path = os.path.join(os.getcwd(), f'{file_path}embeddings.json')
         with open(embeddings_path, 'r') as f:
             return json.load(f)
     
-    def get_embedding(self, text: str, model: str = "text-embedding-3-small"):
+    def get_embedding(self, text: str, model: str = "text-embedding-3-small") -> np.ndarray:
         """Get embedding from OpenAI"""
         response = self.client.embeddings.create(
             input=text,
@@ -56,6 +62,10 @@ class LambdaRAGBot:
         
         # Sort by similarity (descending)
         similarities.sort(reverse=True)
+        aws_metrics_logger.log_event('Top similarities', {
+            'name': 'similarities', 
+            'data': similarities[:n_results]
+            }, LogLevel.INFO)
         
         # Return top results
         results = []
@@ -66,15 +76,25 @@ class LambdaRAGBot:
                 'similarity': similarity
             })
         
+        aws_metrics_logger.log_event('Retrieved Context chunk', { 
+            'name': 'size', 
+            'data': len(results)
+            }, LogLevel.INFO)
+        
         return results
     
-    def generate_response(self, query: str, context_chunks: List[Dict], model: str = "gpt-3.5-turbo"):
+    def generate_response(self, query: str, context_chunks: List[Dict], model: str = "gpt-3.5-turbo") -> str:
         """Generate response using OpenAI"""
         # Combine context
         context = "\n\n".join([chunk['text'] for chunk in context_chunks])
         
         prompt = (
-            "Based on the following context, answer the user's question:\n\n"
+            "Based on the following context, answer the user's question."
+            "You are StycoBot, an AI spokesperson for Ruzan Sasuri's career."
+            "Ruzan Sasuri is looking for a job based on his skills and experience."
+            "You are just helping him spread the word about his skills and experience." 
+            "Be as gender agnostic as you can." 
+            "Mention Ruzan's contact information if you are going to ask someone to contact them.:\n\n"
             f"Context:\n{context}\n\n"
             f"Question: {query}\n\n"
             "Answer:"
@@ -110,28 +130,7 @@ class LambdaRAGBot:
                 for chunk in context_chunks
             ]
         }
-def get_cors_headers(origin: str) -> Dict[str, str]:
-    """
-    Get CORS headers based on the request origin.
     
-    Args:
-        origin: The request origin
-        
-    Returns:
-        dict: CORS headers
-    """
-    # Read ALLOWED_ORIGINS from the environment variable
-    allowed_origins = os.environ.get('ALLOWED_ORIGINS', 'https://ruzansasuri.com').split(',')
-    logger.info(f"allowed_origins: {allowed_origins}")
-    if origin in allowed_origins or '*' in allowed_origins:
-        return {
-            'Access-Control-Allow-Origin': origin,
-            'Access-Control-Allow-Methods': 'POST,OPTIONS',
-            'Access-Control-Allow-Headers': 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
-            'Access-Control-Max-Age': '86400'
-        }
-    return {}
-
 def validate_input(user_input: str) -> bool:
     """
     Validate user input for security.
@@ -171,55 +170,75 @@ def cors_and_validation(event: Dict[str, Any]) -> Dict[str, Any]:
         """
         # Get origin for CORS
         origin = event.get('headers', {}).get('origin', '')
-        logger.info(f"Extracted origin: {origin}")
+        aws_metrics_logger.log_event('Request origin', {
+            'name': 'URL',
+            'data': origin
+            }, LogLevel.INFO)
 
         # Check if origin is allowed using get_cors_headers
-        cors_headers = get_cors_headers(origin)
+        cors_headers, allowed_origins = get_cors_headers(origin)
         if not cors_headers:
-            logger.warning(f"Origin not allowed: {origin}")
+            aws_metrics_logger.log_error(PermissionError(f'Origin not allowed: {origin}'), {
+                'name': 'allowed origins',
+                'data': allowed_origins
+            })
             return create_error_response(403, 'Origin not allowed', origin)
         
         # Get the user input from the event
         try:
             body = json.loads(event.get('body', '{}'))
         except json.JSONDecodeError:
-            logger.error("Invalid JSON in request body")
+            aws_metrics_logger.log_error(json.JSONDecodeError, {
+                'name': 'Invalid JSON in request body',
+                'data': event.get('body', '')})
             return create_error_response(400, 'Invalid request format', origin)
         return origin, body
         
 # Lambda handler
-def lambda_handler(event, context):
+def lambda_handler(event, context) -> Dict[str, Any]:
     """AWS Lambda entry point"""
     
         # Get the user input from the event
     try:
-        logger.info(f"Full event: {json.dumps(event)}")
-        
-        # Handle OPTIONS request
-        if event.get('httpMethod') == 'OPTIONS':
-            return handle_options_request(event)
-        
-        origin, body = cors_and_validation(event)
-
-        user_input = body.get('message', '')
-        logger.info(f"Body: {body}")  # Log first 100 chars
-        
-        # Validate input
-        if not validate_input(user_input):
-            logger.warning(f"Invalid input received: {user_input[:100]}...")
-            return create_error_response(400, 'Invalid input', origin)
-        
-        # Initialize bot (will be cached between invocations)
-        if not hasattr(lambda_handler, 'bot'):
-            lambda_handler.bot = LambdaRAGBot()
+        with aws_metrics_logger.time_operation("Full Event Processing"):
+            aws_metrics_logger.log_event('Full event', {'0', json.dumps(event)}, LogLevel.INFO) 
+            # Handle OPTIONS request
+            if event.get('httpMethod') == 'OPTIONS':
+                return handle_options_request(event)
             
-        # Process query
-        result = lambda_handler.bot.chat(user_input)
-        
+            with aws_metrics_logger.time_operation("CORS and Validation"):
+                origin, body = cors_and_validation(event)
+
+            user_input = body.get('message', '')
+            aws_metrics_logger.log_event('User input', {
+                'name': 'query',
+                'data': user_input
+                }, LogLevel.INFO, include_in_async=False)
+            
+            # Validate input
+            if not validate_input(user_input):
+                aws_metrics_logger.log_error(ValueError, {
+                    'name': 'input',
+                    'data': user_input})
+                return create_error_response(400, 'Invalid input', origin)
+            
+            # Initialize bot (will be cached between invocations)
+            if not hasattr(lambda_handler, 'bot'):
+                lambda_handler.bot = LambdaRAGBot()
+                
+            # Process query
+            with aws_metrics_logger.time_operation("Chat Processing"):
+                result = lambda_handler.bot.chat(user_input)
+
+        aws_metrics_logger.log_event('Chat result', {
+            'name': 'response',
+            'data': result
+            }, LogLevel.INFO, include_in_async=False)
         return create_success_response(result, origin)
 
         
     except Exception as e:
+        aws_metrics_logger.log_error(e)
         return {
             'statusCode': 500,
             'body': json.dumps({'error': str(e)})
@@ -232,7 +251,7 @@ if __name__ == "__main__":
         print("Please set OPENAI_API_KEY environment variable")
         exit(1)
         
-    bot = LambdaRAGBot()
+    bot = LambdaRAGBot('RAG/embeddings/')
     
     while True:
         user_query = input("\nYou: ")
