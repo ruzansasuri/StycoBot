@@ -4,8 +4,8 @@ import logging
 import os
 from typing import Any, Dict
 
-
-logger = logging.getLogger()
+from libs.metrics.shared_metrics import metrics as aws_metrics_logger
+from libs.metrics.aws_metrics import LogLevel
 
 def create_success_response(message: str, origin: str) -> Dict[str, Any]:
     """
@@ -39,15 +39,18 @@ def get_cors_headers(origin: str, default_allowed_origin="https://ruzansasuri.co
     """
     # Read ALLOWED_ORIGINS from the environment variable
     allowed_origins = os.environ.get('ALLOWED_ORIGINS', default_allowed_origin).split(',')
-    logger.info(f"allowed_origins: {allowed_origins}")
+    aws_metrics_logger.log_event('Allowed origins', {
+        'name': 'Allowed Origin list', 
+        'data': allowed_origins,
+        }, LogLevel.INFO)
     if origin in allowed_origins or '*' in allowed_origins:
         return {
             'Access-Control-Allow-Origin': origin,
             'Access-Control-Allow-Methods': 'POST,OPTIONS',
             'Access-Control-Allow-Headers': 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
             'Access-Control-Max-Age': '86400'
-        }
-    return {}
+        }, allowed_origins
+    return {}, allowed_origins
 
 def handle_options_request(event: Dict[str, Any]) -> Dict[str, Any]:
     """

@@ -5,3 +5,9 @@ numpy
 
 # OpenAI client
 OpenAI
+
+# For AWS interactions
+boto3
+
+# For AWS mocking in tests
+moto
