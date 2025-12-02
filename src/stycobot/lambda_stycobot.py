@@ -21,7 +21,10 @@ class LambdaRAGBot:
         # Load embeddings from JSON (included in Lambda package)
         self.embeddings_data = self.load_embeddings(file_path)
         self.embeddings_matrix = np.array([item['embedding'] for item in self.embeddings_data])
-        
+
+        # Load prompt template (cached for efficiency)
+        self.prompt_template = self.load_prompt_template(file_path)
+
         # Initialize OpenAI client
         self.client = OpenAI(api_key=os.environ.get('OPENAI_API_KEY'))
         
@@ -36,7 +39,19 @@ class LambdaRAGBot:
             embeddings_path = os.path.join(os.getcwd(), f'{file_path}embeddings.json')
         with open(embeddings_path, 'r') as f:
             return json.load(f)
-    
+
+    def load_prompt_template(self, file_path: str = None) -> str:
+        """
+            Load prompt template from packaged text file
+            param file_path: Optional path to the template file(please include trailing slash)
+        """
+        if file_path is None: # When running on lambda, it won't have a path
+            template_path = os.path.join(os.path.dirname(__file__), 'prompt_template.txt')
+        else: # When running locally, it will have a path from the if, name, main part.
+            template_path = os.path.join(os.getcwd(), f'{file_path}prompt_template.txt')
+        with open(template_path, 'r') as f:
+            return f.read()
+
     def get_embedding(self, text: str, model: str = "text-embedding-3-small") -> np.ndarray:
         """Get embedding from OpenAI"""
         response = self.client.embeddings.create(
@@ -87,18 +102,9 @@ class LambdaRAGBot:
         """Generate response using OpenAI"""
         # Combine context
         context = "\n\n".join([chunk['text'] for chunk in context_chunks])
-        
-        prompt = (
-            "Based on the following context, answer the user's question."
-            "You are StycoBot, an AI spokesperson for Ruzan Sasuri's career."
-            "Ruzan Sasuri is looking for a job based on his skills and experience."
-            "You are just helping him spread the word about his skills and experience." 
-            "Be as gender agnostic as you can." 
-            "Mention Ruzan's contact information if you are going to ask someone to contact them.:\n\n"
-            f"Context:\n{context}\n\n"
-            f"Question: {query}\n\n"
-            "Answer:"
-        )
+
+        # Use cached prompt template with dynamic values
+        prompt = self.prompt_template.format(context=context, query=query)
         
         response = self.client.chat.completions.create(
             model=model,
@@ -115,6 +121,13 @@ class LambdaRAGBot:
         """Main RAG workflow"""
         # Retrieve relevant chunks
         context_chunks = self.retrieve_context(query)
+        chunk_text = ""
+        for i, chunk in enumerate(context_chunks):
+            chunk_text += f"\nChunk {i} (score: {chunk['similarity']}): {chunk['text'][:200]})"
+
+        aws_metrics_logger.log_event(f"Query: {query}\n"
+                                     f"Retrieved length: {len(context_chunks)}"
+                                     f"{chunk_text}")
         
         # Generate response
         response = self.generate_response(query, context_chunks)
