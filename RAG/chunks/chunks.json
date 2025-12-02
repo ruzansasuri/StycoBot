@@ -1,26 +1,62 @@
 [
   {
-    "text": "Contact\n5853556146 (Mobile)\nruzansasuri@gmail.com\nwww.linkedin.com/in/ruzan-sasuri\n(LinkedIn)\nTop Skills\nPostgreSQL\nTypeScript\nDebugging\nLanguages\nEnglish (Native or Bilingual)\nHindi (Native or Bilingual)\nRuzan Sasuri\nSoftware Engineer | Security Initiatives | Performance Optimization\nSan Francisco, California, United States\nSummary\nA Software Engineer with over 8 years of experience building,\ntesting and maintaining product features. I am also an avid gamer\nand like to build fun side projects. Please visit my website https://\nruzansasuri.com to see some of my work.\nExperience\nF5 Networks\nSoftware Engineer\nMarch 2019\u00a0-\u00a0December 2024\u00a0(5 years 10 months)\nRemote\n- Led full-stack development for customer-facing features on a large-scale\nplatform, working with product, UX/UI, and engineering teams to deliver\nscalable solutions. Developed a multi-provider VM provisioning feature and\nmentored junior developers to enhance productivity and foster a collaborative\nenvironment.\n- Implemented caching mechanisms to reduce load times of schema-\ngenerated pages from 60 seconds to 2 seconds, significantly improving user\nexperience and system performance.\n- Contributed to security initiatives as part of the Security Ninjas program,\nwriting and reviewing Threat Model Assessments for new and existing\nfeatures, enhancing product security by identifying and addressing\nvulnerabilities during the design phase, reducing the risk of post-release\nsecurity flaws.\n- Improved testing efficiency and collaboration by integrating Cypress into CI/\nCD pipelines for automated UI testing, increasing test coverage, and reducing\nmanual QA efforts, while also promoting Test-Driven Development (TDD)\nand mob-programming practices to reduce post-release defects by 30% and\naccelerate development cycles.\nAccenture\nSoftware Engineering Analyst\nNovember 2013\u00a0-\u00a0April 2016\u00a0(2 years 6 months)\nMumbai, Maharashtra, India\n\u00a0 Page 1 of 2",
+    "text": "Contact\n5853556146 (Mobile)\nruzansasuri@gmail.com\nwww.linkedin.com/in/ruzan-sasuri\n(LinkedIn)\nTop Skills\nTailwind CSS\nContent Management Systems\n(CMS)\nBootstrap (Framework)\nLanguages\nEnglish (Native or Bilingual)\nHindi (Native or Bilingual)\nRuzan Sasuri\nFull-Stack Software Engineer | Go, React, TypeScript | Cloud-Native\nSolutions & Performance Optimization\nSan Francisco, California, United States\nSummary\nFull-Stack Software Engineer with 7+ years of experience building\nscalable, secure, and high-performance applications. Skilled in\nGo, React, TypeScript, Docker, Kubernetes, and AWS with a\nproven track record in performance optimization and cloud-native\ndevelopment.\nHighlights:\n- Reduced page load times from 60s to 2s through strategic caching\nimplementation\n- Built cross-provider VM provisioning systems for standardized\ndeployments\n- Active contributor to Security Ninjas initiative, reducing post-release\nsecurity risks by 20%\n- Passionate about automation, TDD, and creating elegant technical\nsolutions\nCurrently exploring AI integrations and building interactive projects.\nVisit https://ruzansasuri.com to see my work and chat with my AI-\npowered portfolio assistant!\nExperience\nF5 Networks\nSoftware Engineer\nMarch 2019\u00a0-\u00a0December 2024\u00a0(5 years 10 months)\nSan Francisco, California, United States\n- Implemented caching mechanisms to reduce load times of schema-\ngenerated pages from 60 seconds to\n2 seconds, improving user experience and overall performance.\n- Built and integrated a cross-provider VM provisioning and orchestration\nsystem that standardized\ndeployments and minimized configuration drift across environments\n\u00a0 Page 1 of 3",
     "metadata": {
       "page_label": "1",
       "file_name": "LinkedInProfile.pdf",
       "file_path": "C:\\Users\\ruzan\\Documents\\GitHub\\StycoBot\\RAG\\source_docs\\LinkedInProfile.pdf",
       "file_type": "application/pdf",
-      "file_size": 47433,
+      "file_size": 51244,
       "creation_date": "2025-09-15",
-      "last_modified_date": "2025-09-15"
+      "last_modified_date": "2025-12-02"
     }
   },
   {
-    "text": "- Deployment and creation of scripts (Perl and Shell) in order to enhance the\nautomation process and help with disaster recovery in case of a server failure.\n- Major focus on automation of various aspects of U2L (Unix to Linux)\nmigration, including transferring configuration files and binaries using Shell and\nPerl scripts.\n- Used Perl/CGI, HTML, CSS and Javascript to create web pages to help read\nserver data on a web page.\nEducation\nRochester Institute of Technology\nMaster\u2019s Degree,\u00a0Computer Science\u00a0\u00b7\u00a0(2016\u00a0-\u00a02018)\nThakur College of Engineering and Technology\nBachelor of Engineering (BE),\u00a0Computer Engineering\u00a0\u00b7\u00a0(2009\u00a0-\u00a02013)\nCathedral and John Connon School\nI.S.C.,\u00a0Science\u00a0\u00b7\u00a0(2007\u00a0-\u00a02009)\nCathedral and John Connon School\nI.C.S.E.,\u00a0Science\u00a0\u00b7\u00a0(1996\u00a0-\u00a02007)\n\u00a0 Page 2 of 2",
+    "text": "- Designed and implemented full-stack, customer-facing features on large-\nscale enterprise products,\ncollaborating with product, UX/UI, and engineering teams to deliver scalable\nsolutions.\n- Contributed to the Security Ninjas initiative, writing and reviewing Threat\nModel Assessments to\nidentify and mitigate vulnerabilities early in the design phase, reducing post-\nrelease security risks by\n20%.\n- Built automation scripts in Shell to handle system backup and restore\noperations with integrated failure\nhandling, delivering a fully functional solution within two iterations under tight\ndeadlines.\nAccenture\nSoftware Engineering Analyst\nNovember 2013\u00a0-\u00a0April 2016\u00a0(2 years 6 months)\nMumbai, Maharashtra, India\n- Spearheaded automation initiatives using Perl and Shell scripting to\nstreamline operational workflows\nand implement disaster recovery solutions, improving recovery time by 20%\nand reducing manual\neffort.\n- Automated the Unix-to-Linux (U2L) migration process by developing custom\nscripts to transfer\nconfiguration files and binaries, ensuring a seamless and error-free migration\nexperience.\n- Developed and maintained web-based tools using Perl/CGI, HTML, CSS, and\nJavaScript to display\nreal-time server data, enhancing system monitoring accuracy and improving\nstakeholder visibility.\n- Collaborated closely with infrastructure teams, leveraging Jenkins for CI/CD\nautomation and\nLinux-based systems for server management to enable reliable and scalable\noperations.\nEducation\nRochester Institute of Technology\n\u00a0 Page 2 of 3",
     "metadata": {
       "page_label": "2",
       "file_name": "LinkedInProfile.pdf",
       "file_path": "C:\\Users\\ruzan\\Documents\\GitHub\\StycoBot\\RAG\\source_docs\\LinkedInProfile.pdf",
       "file_type": "application/pdf",
-      "file_size": 47433,
+      "file_size": 51244,
       "creation_date": "2025-09-15",
-      "last_modified_date": "2025-09-15"
+      "last_modified_date": "2025-12-02"
+    }
+  },
+  {
+    "text": "Master\u2019s Degree,\u00a0Computer Science\u00a0\u00b7\u00a0(2016\u00a0-\u00a02018)\nThakur College of Engineering and Technology\nBachelor of Engineering (BE),\u00a0Computer Engineering\u00a0\u00b7\u00a0(2009\u00a0-\u00a02013)\nCathedral and John Connon School\nI.S.C.,\u00a0Science\u00a0\u00b7\u00a0(2007\u00a0-\u00a02009)\nCathedral and John Connon School\nI.C.S.E.,\u00a0Science\u00a0\u00b7\u00a0(1996\u00a0-\u00a02007)\n\u00a0 Page 3 of 3",
+    "metadata": {
+      "page_label": "3",
+      "file_name": "LinkedInProfile.pdf",
+      "file_path": "C:\\Users\\ruzan\\Documents\\GitHub\\StycoBot\\RAG\\source_docs\\LinkedInProfile.pdf",
+      "file_type": "application/pdf",
+      "file_size": 51244,
+      "creation_date": "2025-09-15",
+      "last_modified_date": "2025-12-02"
+    }
+  },
+  {
+    "text": "Ruzan  Sasuri  San  Francisco,  CA  |  585-355-6146  |  ruzansasuri@gmail.com  |  https://ruzansasuri.com |  LinkedIn  PROFESSIONAL  SUMMARY   Full-stack  Software  Engineer  with  7+  years  of  experience  building  scalable,  secure,  and  high-performance  \napplications.\n \nSkilled\n \nin\n \nGo,\n \nReact,\n \nTypeScript,\n \nDocker,\n \nKubernetes,\n \nand\n \nAWS.\n \nProven\n \ntrack\n \nrecord\n \nin\n \nperformance\n \noptimization,\n \nautomation,\n \nand\n \ncollaborative\n \ncloud-native\n \ndevelopment\n \nusing\n \nGit\n \nand\n \nCI/CD.\n \nPassionate\n \nabout\n \ncreating\n \nelegant\n \ntechnical\n \nsolutions\n \nthat\n \ndrive\n \nmeasurable\n \nimpact.\n  WORK  EXPERIENCE   F5  Networks,  Inc.  Software  Engineer  |  San  Francisco,  CA  |  Mar  2019  \u2013  Dec  2024  \u25cf  Implemented  caching  mechanisms  to  reduce  load  times  of  schema-generated  pages  from  60  seconds  to  \n2\n \nseconds,\n \nimproving\n \nuser\n \nexperience\n \nand\n \noverall\n \nperformance.\n \u25cf  Built  and  integrated  a  cross-provider  VM  provisioning  and  orchestration  system  that  standardized  \ndeployments\n \nand\n \nminimized\n \nconfiguration\n \ndrift\n \nacross\n \nenvironments\n \u25cf  Designed  and  implemented  full-stack,  customer-facing  features  on  large-scale  enterprise  products,  \ncollaborating\n \nwith\n \nproduct,\n \nUX/UI,\n \nand\n \nengineering\n \nteams\n \nto\n \ndeliver\n \nscalable\n \nsolutions.\n \u25cf  Contributed  to  the  Security  Ninjas  initiative,  writing  and  reviewing  Threat  Model  Assessments  to  \nidentify\n \nand\n \nmitigate\n \nvulnerabilities\n \nearly\n \nin\n \nthe\n \ndesign\n \nphase,\n \nreducing\n \npost-release\n \nsecurity\n \nrisks\n \nby\n \n20%.\n \u25cf  Built  automation  scripts  in  Shell  to  handle  system  backup  and  restore  operations  with  integrated  failure  \nhandling,\n \ndelivering\n \na\n \nfully\n \nfunctional\n \nsolution\n \nwithin\n \ntwo\n \niterations\n \nunder\n \ntight\n \ndeadlines.\n \u25cf  Key  Skills:  Go,  React,  TypeScript,  Docker,  Kubernetes,  PostgreSQL,  Git   Accenture  PLC  Software  Engineering  Analyst  |  Mumbai,  India  |  Nov  2013  \u2013  Apr  2016  \u25cf  Spearheaded  automation  initiatives  using  Perl  and  Shell  scripting  to  streamline  operational  workflows  \nand\n \nimplement\n \ndisaster\n \nrecovery\n \nsolutions,\n \nimproving\n \nrecovery\n \ntime\n \nby\n \n20%\n \nand\n \nreducing\n \nmanual\n \neffort.\n \u25cf  Automated  the  Unix-to-Linux  (U2L)  migration  process  by  developing  custom  scripts  to  transfer  \nconfiguration\n \nfiles\n \nand\n \nbinaries,\n \nensuring\n \na\n \nseamless\n \nand\n \nerror-free\n \nmigration\n \nexperience.\n \u25cf  Developed  and  maintained  web-based  tools  using  Perl/CGI,  HTML,  CSS,  and  JavaScript  to  display  \nreal-time\n \nserver\n \ndata,\n \nenhancing\n \nsystem\n \nmonitoring\n \naccuracy\n \nand\n \nimproving\n \nstakeholder\n \nvisibility.\n \u25cf  Collaborated  closely  with  infrastructure  teams,  leveraging  Jenkins  for  CI/CD  automation  and  \nLinux-based\n \nsystems\n \nfor\n \nserver\n \nmanagement\n \nto\n \nenable\n \nreliable\n \nand\n \nscalable\n \noperations.",
+    "metadata": {
+      "page_label": "1",
+      "file_name": "Ruzan Sasuri - Resume.pdf",
+      "file_path": "C:\\Users\\ruzan\\Documents\\GitHub\\StycoBot\\RAG\\source_docs\\Ruzan Sasuri - Resume.pdf",
+      "file_type": "application/pdf",
+      "file_size": 124689,
+      "creation_date": "2025-12-02",
+      "last_modified_date": "2025-12-02"
+    }
+  },
+  {
+    "text": "PROJECTS  \n AI-Driven  Portfolio  Chatbot  (Live)  \n2025\n \u25cf  Built  and  deployed  an  interactive  portfolio  site  hosted  on  GitHub  Pages  featuring  a  custom  chatbot  that  \nuses\n \na\n \nstatic\n \nvector\n \nrepresentation\n \nof\n \nmy\n \nprofessional\n \nprofile\n \nwith\n \npublic\n \nLLMs\n \nto\n \nanswer\n \nuser\n \nquestions.\n \u25cf  Implemented  lightweight  retrieval  logic  and  prompt  formatting  to  surface  accurate,  context-aware  \nresponses\n \nusing\n \nan\n \nAWS\n \nLambda.\n  Luxury  Watch  E-Commerce  Platform  \n2025\n \u25cf  Designed  and  engineered  a  high-end  e-commerce  experience  for  a  luxury  watch  brand  using  React,  \nVercel,\n \nand\n \nSanity\n \nCMS,\n \nwith\n \na\n \nfocus\n \non\n \npremium\n \nUI\n \ncomponents\n \nand\n \ncontent-driven\n \nworkflows.\n \u25cf  Developed  CMS  schemas,  dynamic  product  modules,  and  frontend  architecture  structured  for  scalable  \ncontent\n \nupdates\n \nand\n \nperformant\n \nrendering\n \nacross\n \ndevices.\n  TECHNICAL  SKILLS   Programming  Languages:  Go,  TypeScript,  JavaScript,  Python,  Java,  C#  Containerized  Systems:  Kubernetes,  Docker  Web  Technologies:  React,  AngularJS,  HTML,  CSS  Cloud  &  DevOps:  AWS,  Git,  CI/CD,  Agile,  DevOps  pipelines,  Cloud  Infrastructure  Backend  &  Architecture:  Microservices,  API  Design  Tools  &  Scripting:  Shell  scripting,  IntelliJ  Suite,  MS  Visual  Studio  Testing  &  Automation:  Jest,  Cypress,  JUnit  Database  Management:  PostgreSQL,  MySQL   EDUCATION   Master  of  Science  (M.S.)  in  Computer  Science  Rochester  Institute  of  Technology,  New  York  |  Aug  2016  \u2013  Dec  2018  Key  Courses:  Distributed  Systems,  Big  Data  Analytics,  Foundations  of  Networking   Bachelor  of  Engineering  (B.E.)  in  Computer  Engineering  Mumbai  University,  Mumbai,  India  |  Sep  2009  \u2013  May  2013",
+    "metadata": {
+      "page_label": "2",
+      "file_name": "Ruzan Sasuri - Resume.pdf",
+      "file_path": "C:\\Users\\ruzan\\Documents\\GitHub\\StycoBot\\RAG\\source_docs\\Ruzan Sasuri - Resume.pdf",
+      "file_type": "application/pdf",
+      "file_size": 124689,
+      "creation_date": "2025-12-02",
+      "last_modified_date": "2025-12-02"
     }
   },
   {
@@ -31,20 +67,8 @@
       "file_path": "C:\\Users\\ruzan\\Documents\\GitHub\\StycoBot\\RAG\\source_docs\\Ruzan Sasuri-Cover Letter.pdf",
       "file_type": "application/pdf",
       "file_size": 75988,
-      "creation_date": "2025-09-12",
-      "last_modified_date": "2025-06-10"
-    }
-  },
-  {
-    "text": "Ruzan  Sasuri        San  Francisco,  CA   |  585-355-6146  |   ruzansasuri@gmail.com |  ruzansasuri.com  \nWORK  EXPERIENCE    \nF5  Networks,  Inc.                                          Mar  2019  -  Dec  2024  Software  Engineer  San  Francisco,  CA  \u25cf  Designed  and  implemented  full-stack  customer-facing  features  on  a  large-scale  product,  working  with  product,  \nUX/UI,\n \nand\n \nengineering\n \nteams\n \nto\n \ndeliver\n \nscalable\n \nsolutions.\n \nDeveloped\n \na\n \nmulti-provider\n \nVM\n \nprovisioning\n \nfeature\n \nand\n \nmentored\n \njunior\n \ndevelopers\n \nto\n \nenhance\n \nproductivity\n \nand\n \nfoster\n \na\n \ncollaborative\n \nenvironment.\n \u25cf  Developed  a  shell  script  to  automate  system  backup  and  restore  operations,  including  failure  handling.  \nDelivered\n \na\n \nworking\n \nsolution\n \nwithin\n \ntwo\n \niterations\n \nunder\n \ntight\n \ntime\n \nconstraints.\n \u25cf  Implemented  caching  mechanisms  to  reduce  load  times  of  schema-generated  pages  from  60  seconds  to  2  \nseconds\n,\n \nsignificantly\n \nimproving\n \nuser\n \nexperience\n \nand\n \nsystem\n \nperformance.\n \u25cf  Contributed  to  security  initiatives  as  part  of  the  Security  Ninjas  program,  writing  and  reviewing  Threat  Model  \nAssessments\n \nfor\n \nnew\n \nand\n \nexisting\n \nfeatures,\n \nenhancing\n \nproduct\n \nsecurity\n \nby\n \nidentifying\n \nand\n \naddressing\n \nvulnerabilities\n \nduring\n \nthe\n \ndesign\n \nphase,\n \nreducing\n \nthe\n \nrisk\n \nof\n \npost-release\n \nsecurity\n \nflaws.\n  Accenture  PLC                   Nov  2013  -  Apr  2016  Software  Engineering  Analyst  Mumbai,  India  \u25cf  Spearheaded  automation  initiatives  by  creating  and  deploying  Perl  and  Shell  scripts  to  streamline  operational  \nworkflows,\n \nincluding\n \ndisaster\n \nrecovery\n \nsolutions\n \nthat\n \nminimized\n \ndowntime\n \nduring\n \nserver\n \nfailures,\n \nresulting\n \nin\n \na\n \n20%\n \nincrease\n \nin\n \nrecovery\n \nspeed\n \nand\n \nreduced\n \nmanual\n \neffort.\n \u25cf  Automated  the  Unix-to-Linux  (U2L)  migration  process  by  developing  custom  shell  scripts  to  transfer  critical  \nconfiguration\n \nfiles\n \nand\n \nbinaries,\n \nensuring\n \na\n \nseamless\n \ntransition\n \nand\n \nimproving\n \nteam\n \nefficiency\n \nby\n \nreducing\n \nmanual\n \neffort.\n \u25cf  Developed  and  maintained  web-based  tools  using  Perl/CGI,  HTML,  CSS,  and  JavaScript  to  display  real-time  \nserver\n \ndata,\n \nimproving\n \nsystem\n \nmonitoring\n \nand\n \naccessibility\n \nfor\n \nstakeholders.\n  \nTECHNICAL  SKILLS   Programming  Languages:  Go,  TypeScript,  JavaScript,  Python,  Java,  C#.  Containerized  systems:  Kubernetes,  Docker   Web  Technologies:  React,  Jest,  Cypress,  AngularJS,  HTML,  CSS.  Tools  and  Scripting:  Shell-scripting ,  IntelliJ  suite,  MS  Visual  Studio.  Database  Management:  PostgreSQL,  MySQL.   EDUCATION   \nMaster  of  Science  in  Computer  Science                                                                            Aug  2016  -  Dec  2018   Rochester  Institute  of  Technology,  New  York                                                                                             Key  Courses:  Distributed  Systems,  Big  Data  Analytics,  Foundations  of  Networking   Bachelor  of  Engineering  in  Computer  Engineering                                                        Sep  2009  -  May  2013  Mumbai  University,  Mumbai  -  India",
-    "metadata": {
-      "page_label": "1",
-      "file_name": "Ruzan Sasuri-Resume.pdf",
-      "file_path": "C:\\Users\\ruzan\\Documents\\GitHub\\StycoBot\\RAG\\source_docs\\Ruzan Sasuri-Resume.pdf",
-      "file_type": "application/pdf",
-      "file_size": 118030,
-      "creation_date": "2025-09-12",
-      "last_modified_date": "2025-05-20"
+      "creation_date": "2025-09-15",
+      "last_modified_date": "2025-09-15"
     }
   }
 ]
