@@ -3,17 +3,7 @@
 [![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-StycoBot is an interactive chatbot that can engage in conversations about food preferences, age, and favorite quotes. It's designed to be friendly and conversational, with the ability to learn about new users over time.
-
-## Features
-
-- Interactive command-line interface
-- User authentication system
-- Context-aware responses
-- Support for multiple users
-- Help system with available commands
-- Name change functionality
-- Clean and user-friendly interface
+StycoBot is an interactive chatbot that can engage in conversations about Ruzan Sasuri's professional experience. It's designed to be friendly and conversational, with a RAG system to update the knowledge base.
 
 ## Getting Started
 
@@ -36,29 +26,15 @@ StycoBot is an interactive chatbot that can engage in conversations about food p
 
 ### Usage
 
-1. Run the chatbot:
-   ```bash
-   python src/chatbot.py
-   ```
+1. Make sure to create a new AWS Lambda instance.
+2. Run deploy/deploy.ps1 to create StycoBot.zip
+3. Uploade StycoBot.zip to AWS Lambda code.
+4. Set environment variables:
+   - ALLOWED_ORIGINS=https://ruzansasuri.com(or any implementation of a chat window you want.)
+   - ENVIRONMENT=prod
+   - METRICS_SQS_QUEUE_URL=`Metrics Queue URL for cloud watch metrics`
+   - OPENAI_API_KEY=`Set to an OPENAI key from your account`
 
-2. Enter your name when prompted. If you're a new user, you'll be asked to provide some information.
-
-3. Available commands:
-   - `help`: Show available commands
-   - `change name`: Change your current name
-   - `quit`: Exit the chatbot
-
-4. Ask about other users by starting your message with their name:
-   ```
-   Ruzan what's your favorite food?
-   ```
-
-## Testing
-
-Run the test suite to ensure everything is working correctly:
-```bash
-python -m pytest tests/test_chatbot.py -v
-```
 
 ## Contributing
 
@@ -78,48 +54,6 @@ This guide will help you deploy the StycoBot chatbot to AWS Lambda while keeping
 2. AWS CLI installed and configured
 3. Python 3.12 or later
 
-## Deployment Steps
-
-1. **Create Deployment Package**
-   - Run the PowerShell script to create the deployment package:
-   ```powershell
-   .\deploy\deploy.ps1
-   ```
-   This will create `deploy/StycoBot.zip` containing all necessary files from the `src` directory.
-
-2. **Create a Lambda Function**
-   - Go to AWS Lambda Console
-   - Click "Create function"
-   - Choose "Author from scratch"
-   - Function name: `StycoBot`
-   - Runtime: Python 3.12
-   - Architecture: x86_64 (cheaper than arm64)
-   - Click "Create function"
-
-3. **Configure Basic Settings**
-   - Memory: 128 MB (minimum, sufficient for this chatbot)
-   - Timeout: 10 seconds
-   - Click "Save"
-
-4. **Upload Code**
-   - In the Lambda function page, click "Upload from" and select ".zip file"
-   - Upload the `deploy/StycoBot.zip` file created in step 1
-
-5. **Configure API Gateway**
-   - In the Lambda function page, click "Add trigger"
-   - Select "API Gateway"
-   - Create a new API
-   - Security: Open (for testing)
-   - Click "Add"
-
-6. **Test the Function**
-   - Use the API Gateway endpoint URL provided
-   - Send a POST request with JSON body:
-   ```json
-   {
-     "message": "What is Ruzan's favorite food?"
-   }
-   ```
 
 ## Cost Optimization
 
@@ -148,24 +82,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgments
 
-- Special thanks to the Python community for their amazing libraries and tools
-- Inspired by various chatbot implementations and natural language processing techniques
-- A big thank you to Cascade, the AI coding assistant, for helping to develop and refine this chatbot!
-
-## Future Work
-
-### Website Integration
-
-One of the key future goals for StycoBot is to integrate it into my portfolio website, enhancing its accessibility and user engagement. This will involve:
-
-- Adding StycoBot to my portfolio website
-- Implementing real-time chat capabilities
-- Creating a persistent backend to store user data
-- Adding authentication and user management features
-- Enhancing the chat interface with features like:
-  - Message history
-  - User profile management
-  - Improved error handling and user feedback
-  - Better context awareness in responses
-
-The web version will allow users to interact with StycoBot directly from a browser, making it more accessible and engaging for a wider audience.
+- Special thanks to the Python community for their amazing libraries and tools.
+- Inspired by various chatbot implementations and natural language processing techniques.
+- Possible due to the accessible OPENAI's chatgpt API.
+- Claude, the AI coding assistant, helping to quickly develop and refine this chatbot.
