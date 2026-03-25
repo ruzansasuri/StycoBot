@@ -28,3 +28,7 @@ ui/
 # Deployment files
 deploy/StycoBot.zip
 deploy/deps/
+
+# Assets and deployment
+*.pdf
+*.zip
