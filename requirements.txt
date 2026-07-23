@@ -2,6 +2,19 @@
 # No external dependencies required for this simple chatbot 
 # Usual suspects
 numpy
+python-dotenv   
 
 # OpenAI client
 OpenAI
+
+# llama
+llama-index
+
+# vector db
+chromadb
+
+# sentence transformers
+sentence_transformers
+
+# Anthropic
+anthropic

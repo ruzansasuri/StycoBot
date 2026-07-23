@@ -1,23 +1,18 @@
 import json
 import os
 from openai import OpenAI
-import requests
 import chromadb
+from sentence_transformers import SentenceTransformer
 
 from RAG.libs.common import save_to_json
 
 # Ollama API endpoint
 OLLAMA_URL = "http://localhost:11434/api/embeddings"
 
-def get_embedding_local(text, model="mxbai-embed-large"):
-    """Get embedding from Ollama"""
-    response = requests.post(OLLAMA_URL, json={
-        "model": model,
-        "prompt": text
-    })
-    result = response.json()
-    # print("API Response:", result)
-    return result["embedding"]
+def get_embedding_local(texts):
+    """Get embedding from python"""
+    model = SentenceTransformer("all-MiniLM-L6-v2")  # small, fast, good enough for most RAG
+    return model.encode(texts, batch_size=32).tolist()
 
 def get_embedding_openai(text, model="text-embedding-3-small"):
     """Get embedding from OpenAI"""
@@ -37,23 +32,18 @@ def get_chunks(file_path):
 
 def get_embeddings(chunks_data):
     """Get embeddings for all chunks"""
-    embeddings_data = []
-    for i, chunk in enumerate(chunks_data):
-        text = chunk["text"]
-        
-        # Get embedding from Ollama
-        embedding = get_embedding_openai(text)
-        
-        # Store chunk with its embedding
-        embeddings_data.append({
+    texts = [chunk["text"] for chunk in chunks_data]
+    embeddings = get_embedding_local(texts)
+
+    return [
+        {
             "id": i,
-            "text": text,
+            "text": chunk["text"],
             "metadata": chunk["metadata"],
-            "embedding": embedding
-        })
-        
-        print(f"Processed chunk {i+1}/{len(chunks_data)}")
-    return embeddings_data
+            "embedding": emb
+        }
+        for i, (chunk, emb) in enumerate(zip(chunks_data, embeddings))
+    ]
 
 
 

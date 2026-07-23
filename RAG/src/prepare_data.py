@@ -1,7 +1,10 @@
+from dotenv import load_dotenv
 
 from RAG.libs.chunk_documents import chunker, chunks_to_list, load_documents
 from RAG.libs.common import save_to_json
 from RAG.libs.create_embeddings import get_chunks, get_embeddings
+
+load_dotenv()
 
 RAG_DOCUMENTS_PATH = "RAG/source_docs"
 RAG_CHUNKS_PATH = "RAG/chunks/chunks.json"

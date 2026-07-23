@@ -12,6 +12,7 @@ build/
 venv/
 env/
 .env/
+.env
 
 # IDE specific files
 .vscode/
@@ -32,3 +33,5 @@ deploy/deps/
 # Assets and deployment
 *.pdf
 *.zip
+RAG/chunks/
+RAG/embeddings/

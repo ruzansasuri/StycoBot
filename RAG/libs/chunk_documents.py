@@ -1,5 +1,5 @@
 from llama_index.core import SimpleDirectoryReader
-from llama_index.core.node_parser import SimpleNodeParser 
+from llama_index.core.node_parser import SimpleNodeParser
 
 from RAG.libs.common import save_to_json
 
